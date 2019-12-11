@@ -1,6 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled, { createGlobalStyle } from "styled-components"
+import { FaInstagram, FaTwitter } from "react-icons/fa"
 
 import Header from "./header"
 
@@ -32,7 +33,10 @@ const Layout = ({ children }) => {
       <GlobalStyle />
       <Header siteTitle={data.site.siteMetadata.title} />
       <main>{children}</main>
-      <Footer>trevligmjukvara.se - 2019</Footer>
+      <Footer>
+        <FaInstagram />
+        <FaTwitter />
+      </Footer>
     </Wrapper>
   )
 }
@@ -49,6 +53,11 @@ const Wrapper = styled.div`
 const Footer = styled.footer`
   margin-top: auto;
   padding: 20px 0;
+  font-size: 30px;
+
+  > * {
+    padding-right: 20px;
+  }
 `
 
 export default Layout
