@@ -34,6 +34,7 @@ const IndexPage = ({ data }) => {
       <p>Välkommen till vår podcast!</p>
       {episodes.map(
         (episode, i) =>
+          episode.node.context &&
           episode.node.context.frontmatter && (
             <Episode>
               <Link to={episode.node.context.frontmatter.slug} key={i}>
