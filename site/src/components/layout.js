@@ -14,6 +14,8 @@ const GlobalStyle = createGlobalStyle`
 
   body {
       font-family: Helvetica, Arial, sans-serif;
+      overflow-y: scroll;
+      background-color: #fffbf6;
   }
 `
 

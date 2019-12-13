@@ -7,15 +7,11 @@ excerpt: "Vårt första avsnitt. Vi diskuterar det ena, men framför allt det an
 ---
 
 import episode from './s00e01.mp3'
+import Player from '../components/player'
 
 # S00E01 - First commit
 
-<audio
-    controls
-    src={episode}>
-        Your browser does not support the
-        <code>audio</code> element.
-</audio>
+<Player src={episode} />
 
 ## Show notes
 
