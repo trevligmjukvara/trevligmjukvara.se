@@ -43,9 +43,27 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        defaultLayouts: {
-          default: require.resolve(`./src/components/layout.js`),
-        },
+        // defaultLayouts: {
+        //   default: require.resolve(`./src/components/layout.js`),
+        // },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        // Add any options here
+      },
+    },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Roboto`,
+            variants: [`300`, `400`, `500`, `600`, `700`],
+            subsets: [`latin`],
+          },
+        ],
       },
     },
 
