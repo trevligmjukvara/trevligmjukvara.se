@@ -2,39 +2,49 @@ import { Link } from "gatsby"
 import React from "react"
 import styled from "styled-components"
 import logo from "../images/logo.png"
-import { FaEnvelope, FaTwitter } from "react-icons/fa"
+import { FaEnvelope, FaTwitter, FaRss } from "react-icons/fa"
 
 const Header = ({ siteTitle }) => (
-  <Wrapper>
-    <LogoWrapper>
-      <Link to="/">
-        <Logo src={logo} />
-      </Link>
-    </LogoWrapper>
-    <BoxWrapper>
-      <Tagline>- veckopodden om trevlig och otrevlig mjukvara</Tagline>
-      <SocialWrapper>
-        <Twitter
-          target="_blank"
-          href="https://twitter.com/trevligmjukvara"
-          title="Säg hej till oss på twitter"
-        >
-          <h4>Twitter</h4>
-          <span>@trevligmjukvara</span>
-          <FaTwitter />
-        </Twitter>
-        <Email
-          target="_blank"
-          href="mailto:kontakt@trevligmjukvara.se"
-          title="Maila oss"
-        >
-          <h4>Mail</h4>
-          <span>kontakt@trevligmjukvara.se</span>
-          <FaEnvelope />
-        </Email>
-      </SocialWrapper>
-    </BoxWrapper>
-  </Wrapper>
+  <>
+    <Wrapper>
+      <LogoWrapper>
+        <Link to="/">
+          <Logo src={logo} />
+        </Link>
+      </LogoWrapper>
+      <BoxWrapper>
+        <Tagline>- veckopodden om trevlig och otrevlig mjukvara</Tagline>
+        <SocialWrapper>
+          <Twitter
+            target="_blank"
+            href="https://twitter.com/trevligmjukvara"
+            title="Säg hej till oss på twitter"
+          >
+            <h4>Twitter</h4>
+            <span>@trevligmjukvara</span>
+            <FaTwitter />
+          </Twitter>
+          <Email
+            target="_blank"
+            href="mailto:kontakt@trevligmjukvara.se"
+            title="Maila oss"
+          >
+            <h4>Mail</h4>
+            <span>kontakt@trevligmjukvara.se</span>
+            <FaEnvelope />
+          </Email>
+        </SocialWrapper>
+      </BoxWrapper>
+    </Wrapper>
+    <ButtonsWrapper>
+      <RssButton
+        href="https://feeds.fireside.fm/trevligmjukvara/rss"
+        target="_blank"
+      >
+        <FaRss /> Prenumerera
+      </RssButton>
+    </ButtonsWrapper>
+  </>
 )
 
 export default Header
@@ -48,6 +58,26 @@ const Wrapper = styled.div`
 
   @media only screen and (max-width: 800px) {
     flex-direction: column;
+  }
+`
+
+const ButtonsWrapper = styled.div`
+  margin-bottom: 10px;
+`
+
+const RssButton = styled.a`
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ffd68b;
+  border: 1px solid #d48900;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.05s ease-in;
+  font-size: 14px;
+  text-decoration: none;
+
+  &:hover {
+    background-color: #ffb01f;
   }
 `
 
