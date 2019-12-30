@@ -28,6 +28,7 @@ const GlobalStyle = createGlobalStyle`
             color: black;
             text-decoration: none;
             border-bottom: 2px solid #ff67a9;
+            word-break: break-word;
 
             &:hover {
                 background-color: #ff67a9;
@@ -44,7 +45,7 @@ const GlobalStyle = createGlobalStyle`
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query blogIndex {
-      allSitePage {
+      allSitePage(sort: { fields: id, order: DESC }) {
         edges {
           node {
             context {
@@ -157,15 +158,23 @@ const Episode = styled(Link)`
 `
 
 const Main = styled.main`
-  width: 100%;
   padding: 20px 30px;
   border-left: 1px solid var(--border-color);
+  flex: 1 1 auto;
+
+  @media only screen and (max-width: 600px) {
+    flex: 1;
+  }
 `
 
 const Navigation = styled.nav`
-  width: 380px;
   background-color: var(--nav-background-color);
   border-left: 8px solid var(--border-color);
+  flex: 0 1 380px;
+
+  @media only screen and (max-width: 600px) {
+    flex: 1;
+  }
 
   ${Episode} {
     border-bottom: 1px solid var(--border-color);
