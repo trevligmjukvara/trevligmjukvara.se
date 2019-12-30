@@ -92,7 +92,9 @@ const Layout = ({ children }) => {
   return (
     <>
       <CanvasBackground>
-        <Grid />
+        <Canvas>
+          <Grid />
+        </Canvas>
       </CanvasBackground>
       <Wrapper>
         <GlobalStyle />
@@ -143,10 +145,12 @@ const Layout = ({ children }) => {
   )
 }
 
-const CanvasBackground = styled(Canvas)`
-  position: fixed !important;
+const CanvasBackground = styled.div`
+  position: fixed;
   bottom: 0;
   z-index: -1;
+  width: 100%;
+  height: 50vh;
 `
 
 const Wrapper = styled.div`
