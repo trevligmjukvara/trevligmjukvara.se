@@ -3,8 +3,6 @@ import React from "react"
 import styled from "styled-components"
 import logo from "../images/logo.png"
 import {
-  FaEnvelope,
-  FaTwitter,
   FaRss,
   FaSpotify,
   FaItunesNote,
@@ -30,7 +28,6 @@ const Header = ({ siteTitle }) => (
           >
             <h4 style={{ margin: "10px 0" }}>Twitter</h4>
             <span>@trevligmjukvara</span>
-            {/* <FaTwitter /> */}
           </Twitter>
           <Email
             target="_blank"
@@ -39,7 +36,6 @@ const Header = ({ siteTitle }) => (
           >
             <h4 style={{ margin: "10px 0" }}>Mail</h4>
             <span>kontakt@trevligmjukvara.se</span>
-            {/* <FaEnvelope /> */}
           </Email>
         </SocialWrapper>
       </BoxWrapper>
