@@ -22,6 +22,23 @@ const GlobalStyle = createGlobalStyle`
         overflow-y: scroll;
         background-color: #fff6eb;
     }
+
+    main {
+        a {
+            color: black;
+            text-decoration: none;
+            border-bottom: 2px solid #ff67a9;
+
+            &:hover {
+                background-color: #ff67a9;
+            }
+        }
+
+        li {
+            padding: 3px 0;
+        }
+    }
+
 `
 
 const Layout = ({ children }) => {
