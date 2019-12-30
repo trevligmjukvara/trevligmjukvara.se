@@ -46,8 +46,8 @@ const GlobalStyle = createGlobalStyle`
 `
 
 function Grid() {
-  const SIZE = 120
-  const SEGMENTS = 40
+  const SIZE = 200
+  const SEGMENTS = 60
   const gridRef = React.useRef()
 
   useFrame(({ clock }) => {
@@ -64,7 +64,8 @@ function Grid() {
 }
 
 const COLORS = {
-  brightTurquoise: new THREE.Color(0x376f6c),
+  codGray: new THREE.Color(0x101010),
+  brightTurquoise: new THREE.Color(0x7bf5ee),
 }
 
 const Layout = ({ children }) => {
@@ -92,7 +93,8 @@ const Layout = ({ children }) => {
   return (
     <>
       <CanvasBackground>
-        <Canvas>
+        <Canvas camera={{ position: [0, 0, 15] }}>
+          <fog attach="fog" args={[COLORS.codGray, 5, 30]} />
           <Grid />
         </Canvas>
       </CanvasBackground>
