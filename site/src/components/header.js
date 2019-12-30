@@ -145,6 +145,10 @@ const ButtonsWrapper = styled.div`
 
 const LogoWrapper = styled.div`
   margin-right: 20px;
+
+  @media only screen and (max-width: 800px) {
+    margin-right: 0;
+  }
 `
 
 const Logo = styled.img`
