@@ -52,6 +52,10 @@ function SEO({ description, lang, meta, title }) {
           content: `website`,
         },
         {
+          property: `og:image`,
+          content: `https://trevligmjukvara.se/static/logo-0383d90b932db509ed4e6eefb578c711.png`,
+        },
+        {
           name: `twitter:card`,
           content: `summary`,
         },
