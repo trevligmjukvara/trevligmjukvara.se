@@ -2,6 +2,8 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled, { createGlobalStyle } from "styled-components"
 import { Link } from "gatsby"
+import { Canvas, useFrame } from "react-three-fiber"
+import * as THREE from "three"
 
 import Header from "./header"
 
@@ -20,7 +22,8 @@ const GlobalStyle = createGlobalStyle`
     body {
         font-family: 'Roboto', Helvetica, Arial, sans-serif;
         overflow-y: scroll;
-        background-color: #fff6eb;
+        /* background-color: #fff6eb; */
+        background-color: #101010;
     }
 
     main {
@@ -41,6 +44,28 @@ const GlobalStyle = createGlobalStyle`
     }
 
 `
+
+function Grid() {
+  const SIZE = 120
+  const SEGMENTS = 40
+  const gridRef = React.useRef()
+
+  useFrame(({ clock }) => {
+    gridRef.current.position.z =
+      (clock.getElapsedTime() % 1) * (SIZE / SEGMENTS)
+  })
+  return (
+    <gridHelper
+      ref={gridRef}
+      position={[0, -10, 0]}
+      args={[SIZE, SEGMENTS, COLORS.brightTurquoise, COLORS.brightTurquoise]}
+    />
+  )
+}
+
+const COLORS = {
+  brightTurquoise: new THREE.Color(0x376f6c),
+}
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -65,36 +90,40 @@ const Layout = ({ children }) => {
   const { edges: episodes } = data.allSitePage
 
   return (
-    <Wrapper>
-      <GlobalStyle />
-      <Header siteTitle="Trevlig mjukvara" />
-      <MainWrapper>
-        <Navigation>
-          {episodes.map(
-            (episode, i) =>
-              episode.node.context &&
-              episode.node.context.frontmatter && (
-                <Episode
-                  to={episode.node.context.frontmatter.slug}
-                  key={i}
-                  activeClassName="active"
-                >
-                  <EpisodeNumber>
-                    {episode.node.context.frontmatter.episode}
-                  </EpisodeNumber>
-                  <EpisodeTitle>
-                    {episode.node.context.frontmatter.title}
-                  </EpisodeTitle>
-                  {/* <p>{episode.node.context.frontmatter.excerpt}</p> */}
-                </Episode>
-              )
-          )}
-        </Navigation>
-        <Main>{children}</Main>
-      </MainWrapper>
-      <Footer>
-        {/* <FaInstagram /> */}
-        {/* <FooterLink
+    <>
+      <CanvasBackground>
+        <Grid />
+      </CanvasBackground>
+      <Wrapper>
+        <GlobalStyle />
+        <Header siteTitle="Trevlig mjukvara" />
+        <MainWrapper>
+          <Navigation>
+            {episodes.map(
+              (episode, i) =>
+                episode.node.context &&
+                episode.node.context.frontmatter && (
+                  <Episode
+                    to={episode.node.context.frontmatter.slug}
+                    key={i}
+                    activeClassName="active"
+                  >
+                    <EpisodeNumber>
+                      {episode.node.context.frontmatter.episode}
+                    </EpisodeNumber>
+                    <EpisodeTitle>
+                      {episode.node.context.frontmatter.title}
+                    </EpisodeTitle>
+                    {/* <p>{episode.node.context.frontmatter.excerpt}</p> */}
+                  </Episode>
+                )
+            )}
+          </Navigation>
+          <Main>{children}</Main>
+        </MainWrapper>
+        <Footer>
+          {/* <FaInstagram /> */}
+          {/* <FooterLink
           target="_blank"
           href="https://twitter.com/trevligmjukvara"
           title="Säg hej till oss på twitter"
@@ -108,10 +137,17 @@ const Layout = ({ children }) => {
         >
           <FaEnvelope />
         </FooterLink> */}
-      </Footer>
-    </Wrapper>
+        </Footer>
+      </Wrapper>
+    </>
   )
 }
+
+const CanvasBackground = styled(Canvas)`
+  position: fixed !important;
+  bottom: 0;
+  z-index: -1;
+`
 
 const Wrapper = styled.div`
   display: flex;
@@ -126,6 +162,7 @@ const MainWrapper = styled.div`
   display: flex;
   flex-direction: row;
   border: 1px solid var(--border-color);
+  border-radius: 3px;
   background-color: #fff;
   margin-bottom: 100px;
 
@@ -164,6 +201,7 @@ const Main = styled.main`
 
   @media only screen and (max-width: 600px) {
     flex: 1;
+    padding: 15px;
   }
 `
 

@@ -28,18 +28,18 @@ const Header = ({ siteTitle }) => (
             href="https://twitter.com/trevligmjukvara"
             title="Säg hej till oss på twitter"
           >
-            <h4>Twitter</h4>
+            <h4 style={{ margin: "10px 0" }}>Twitter</h4>
             <span>@trevligmjukvara</span>
-            <FaTwitter />
+            {/* <FaTwitter /> */}
           </Twitter>
           <Email
             target="_blank"
             href="mailto:kontakt@trevligmjukvara.se"
             title="Maila oss"
           >
-            <h4>Mail</h4>
+            <h4 style={{ margin: "10px 0" }}>Mail</h4>
             <span>kontakt@trevligmjukvara.se</span>
-            <FaEnvelope />
+            {/* <FaEnvelope /> */}
           </Email>
         </SocialWrapper>
       </BoxWrapper>
@@ -160,6 +160,7 @@ const Tagline = styled.h2`
   font-style: italic;
   font-weight: normal;
   font-size: 22px;
+  color: #fff;
 
   @media only screen and (max-width: 800px) {
     text-align: center;
@@ -184,9 +185,10 @@ const SocialWrapper = styled.div`
 const Twitter = styled.a`
   border: 1px solid var(--border-color);
   border-left: 8px solid #7af5ee;
+  border-radius: 3px;
   flex: 1 1 50%;
   margin-right: 15px;
-  padding: 0 15px 35px 15px;
+  padding: 0 15px 15px 15px;
   background-color: #fff;
   color: #000;
   text-decoration: none;
@@ -209,9 +211,10 @@ const Twitter = styled.a`
 const Email = styled.a`
   border: 1px solid var(--border-color);
   border-left: 8px solid #ff67a9;
+  border-radius: 3px;
   flex: 1 1 50%;
   margin-left: 15px;
-  padding: 0 15px 35px 15px;
+  padding: 0 15px 15px 15px;
   background-color: #fff;
   color: #000;
   text-decoration: none;
