@@ -5,7 +5,7 @@ import LatestEpisode from "../episodes/s01e03.mdx"
 const IndexPage = () => {
   return (
     <>
-      <SEO title="trevligmjukvara.se" />
+      <SEO title="Trevlig mjukvara" />
       <LatestEpisode />
     </>
   )

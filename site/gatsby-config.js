@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Trevlig mjukvara`,
-    description: `Välkommen till vår podcast!`,
+    description: `Lyssna här!`,
     author: `@sebastiangelotte`,
   },
   plugins: [
