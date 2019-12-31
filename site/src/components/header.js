@@ -109,7 +109,7 @@ const Wrapper = styled.div`
 
 const StyledButton = styled.a`
   display: inline-block;
-  padding: 8px 20px 8px 40px;
+  padding: 8px 0 8px 55px;
   background-color: ${props => props.backgroundColor || "#00c2d4"};
   border: 1px solid ${props => props.borderColor || "#008d9a"};
   border-radius: 3px;
@@ -128,18 +128,29 @@ const StyledButton = styled.a`
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    left: 15px;
+    left: 28px;
   }
 `
 
 const ButtonsWrapper = styled.div`
-  ${StyledButton} {
-    margin-right: 10px;
-    margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  grid-gap: 10px;
+  margin-bottom: 10px;
+
+  @media only screen and (max-width: 1030px) {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
   }
 
   @media only screen and (max-width: 800px) {
-    text-align: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+
+  @media only screen and (max-width: 450px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
   }
 `
 

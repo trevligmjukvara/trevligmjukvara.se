@@ -46,7 +46,7 @@ const GlobalStyle = createGlobalStyle`
 `
 
 function Grid() {
-  const SIZE = 200
+  const SIZE = 160
   const SEGMENTS = 60
   const gridRef = React.useRef()
 
@@ -65,6 +65,7 @@ function Grid() {
 
 const COLORS = {
   codGray: new THREE.Color(0x101010),
+  pink: new THREE.Color(0xff67a9),
   brightTurquoise: new THREE.Color(0x7bf5ee),
 }
 
@@ -94,6 +95,7 @@ const Layout = ({ children }) => {
     <>
       <CanvasBackground>
         <Canvas camera={{ position: [0, 0, 15] }}>
+          {/* <fog attach="fog" args={[COLORS.pink, 1, 60]} /> */}
           <fog attach="fog" args={[COLORS.codGray, 5, 30]} />
           <Grid />
         </Canvas>
@@ -152,7 +154,7 @@ const CanvasBackground = styled.div`
   bottom: 0;
   z-index: -1;
   width: 100%;
-  height: 50vh;
+  height: 100%;
 `
 
 const Wrapper = styled.div`
@@ -214,7 +216,7 @@ const Main = styled.main`
 const Navigation = styled.nav`
   background-color: var(--nav-background-color);
   border-left: 8px solid var(--border-color);
-  flex: 0 1 380px;
+  flex: 0 0 250px;
 
   @media only screen and (max-width: 600px) {
     flex: 1;
