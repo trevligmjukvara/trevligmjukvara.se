@@ -101,6 +101,7 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 20px 0;
+  flex: 1 0 auto;
 
   @media only screen and (max-width: 800px) {
     flex-direction: column;
