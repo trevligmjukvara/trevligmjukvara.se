@@ -93,13 +93,12 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <CanvasBackground>
+      {/*<CanvasBackground>
         <Canvas camera={{ position: [0, 0, 15] }}>
-          {/* <fog attach="fog" args={[COLORS.pink, 1, 60]} /> */}
           <fog attach="fog" args={[COLORS.codGray, 5, 30]} />
           <Grid />
         </Canvas>
-      </CanvasBackground>
+      </CanvasBackground>*/}
       <Wrapper>
         <GlobalStyle />
         <Header siteTitle="Trevlig mjukvara" />
