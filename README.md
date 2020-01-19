@@ -2,7 +2,7 @@
 
 This is the site for the podcast "Trevlig mjukvara". 
 
-Go to [trevligmjukvara.se](https://trevligmjukvara.se) ot listen to it!
+Go to [trevligmjukvara.se](https://trevligmjukvara.se) to listen to it!
 
 ---
 
