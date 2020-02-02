@@ -174,6 +174,7 @@ const MainWrapper = styled.div`
   border-radius: 0 0 3px 3px;
   background-color: #fff;
   margin-bottom: 100px;
+  flex: 1 0 auto;
 
   @media only screen and (max-width: 600px) {
     flex-direction: column;
