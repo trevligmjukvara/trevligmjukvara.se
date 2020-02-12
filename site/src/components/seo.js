@@ -71,6 +71,10 @@ function SEO({ description, lang, meta, title }) {
           name: `twitter:description`,
           content: metaDescription,
         },
+        {
+          name: `google-site-verification`,
+          content: `qTAbRzHV6-0MxjyAC1Dvny1P7T4oTo3oa7DseQt_8GY`,
+        },
       ].concat(meta)}
     />
   )
