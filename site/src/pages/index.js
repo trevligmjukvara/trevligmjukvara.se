@@ -1,6 +1,6 @@
 import React from "react"
 import SEO from "../components/seo"
-import LatestEpisode from "../episodes/s02e09.mdx"
+import LatestEpisode from "../episodes/s02e10.mdx"
 
 const IndexPage = () => {
   return (
