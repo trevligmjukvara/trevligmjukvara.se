@@ -76,7 +76,14 @@ function SEO({ description, lang, meta, title }) {
           content: `qTAbRzHV6-0MxjyAC1Dvny1P7T4oTo3oa7DseQt_8GY`,
         },
       ].concat(meta)}
-    />
+    >
+      <link
+        type="application/rss+xml"
+        rel="alternate"
+        title="Trevlig Mjukvara"
+        href="https://feeds.fireside.fm/trevligmjukvara/rss"
+      />
+    </Helmet>
   )
 }
 
