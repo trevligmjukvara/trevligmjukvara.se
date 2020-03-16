@@ -68,7 +68,7 @@ const Player = ({ src }) => {
         </ProgressWrapper>
       </Wrapper>
     </>,
-    playerWrapper || window && document.body
+    playerWrapper || typeof window !== 'undefined' && document.body
   )
 }
 
