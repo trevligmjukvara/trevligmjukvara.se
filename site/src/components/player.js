@@ -35,7 +35,7 @@ const Player = ({ src }) => {
   }
 
   useEffect(() => {
-    setPlayerWrapper(window && document.getElementById("playerWrapper"))
+    setPlayerWrapper(document.getElementById("playerWrapper"))
   }, [])
 
   console.log(playerWrapper)
@@ -68,7 +68,7 @@ const Player = ({ src }) => {
         </ProgressWrapper>
       </Wrapper>
     </>,
-    playerWrapper || document.body
+    playerWrapper || window && document.body
   )
 }
 
