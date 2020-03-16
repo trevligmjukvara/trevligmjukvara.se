@@ -35,7 +35,7 @@ const Player = ({ src }) => {
   }
 
   useEffect(() => {
-    setPlayerWrapper(document.getElementById("playerWrapper"))
+    setPlayerWrapper(window && document.getElementById("playerWrapper"))
   }, [])
 
   console.log(playerWrapper)
