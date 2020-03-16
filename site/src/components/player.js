@@ -1,4 +1,5 @@
-import React, { createRef, useState } from "react"
+import React, { createRef, useState, useEffect } from "react"
+import { createPortal } from "react-dom"
 import styled from "styled-components"
 import formatTime from "../lib/formatTime"
 import { FaPlay, FaPause } from "react-icons/fa"
@@ -11,6 +12,7 @@ const Player = ({ src }) => {
   const [progress, setProgress] = useState(0)
   const audioPlayer = createRef()
   const progressBar = createRef()
+  const [playerWrapper, setPlayerWrapper] = useState(null)
 
   const timeUpdate = () => {
     setCurrentTime(audioPlayer.current.currentTime)
@@ -32,7 +34,13 @@ const Player = ({ src }) => {
     setCurrentTime(newTime)
   }
 
-  return (
+  useEffect(() => {
+    setPlayerWrapper(document.getElementById("playerWrapper"))
+  }, [])
+
+  console.log(playerWrapper)
+
+  return createPortal(
     <>
       <HiddenAudioElement
         src={src}
@@ -59,7 +67,8 @@ const Player = ({ src }) => {
           <Time>{formatTime(duration)}</Time>
         </ProgressWrapper>
       </Wrapper>
-    </>
+    </>,
+    playerWrapper || document.body
   )
 }
 
@@ -71,9 +80,11 @@ const HiddenAudioElement = styled.audio`
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  border: 5px solid #000;
-  padding: 10px;
+  padding: 15px 10px;
   background-color: #fff;
+  position: relative;
+  top: 0;
+  border-radius: 3px 3px 0 0;
 `
 
 const ControlsWrapper = styled.div`
