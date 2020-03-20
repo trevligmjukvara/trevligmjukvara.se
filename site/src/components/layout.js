@@ -103,7 +103,7 @@ const Layout = ({ children }) => {
       <Wrapper>
         <GlobalStyle />
         <Header siteTitle="Trevlig mjukvara" />
-        <div id="playerWrapper" style={{ minHeight: "70px" }}></div>
+        {/* <div id="playerWrapper" style={{ minHeight: "70px" }}></div> */}
         <MainWrapper>
           <Navigation>
             {episodes.map(
@@ -171,7 +171,8 @@ const MainWrapper = styled.div`
   display: flex;
   flex-direction: row;
   border: 1px solid var(--border-color);
-  border-radius: 0 0 3px 3px;
+  /* border-radius: 0 0 3px 3px; */
+  border-radius: 3px;
   background-color: #fff;
   margin-bottom: 100px;
   flex: 1 0 auto;
