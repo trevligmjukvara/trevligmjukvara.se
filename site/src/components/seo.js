@@ -53,7 +53,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           property: `og:image`,
-          content: `https://trevligmjukvara.se/static/logo-0383d90b932db509ed4e6eefb578c711.png`,
+          content: `https://trevligmjukvara.se/static/logo-641baa309b1fb5ca1411e3c03363058d.png`,
         },
         {
           name: `twitter:card`,
@@ -71,8 +71,19 @@ function SEO({ description, lang, meta, title }) {
           name: `twitter:description`,
           content: metaDescription,
         },
+        {
+          name: `google-site-verification`,
+          content: `qTAbRzHV6-0MxjyAC1Dvny1P7T4oTo3oa7DseQt_8GY`,
+        },
       ].concat(meta)}
-    />
+    >
+      <link
+        type="application/rss+xml"
+        rel="alternate"
+        title="Trevlig Mjukvara"
+        href="https://feeds.fireside.fm/trevligmjukvara/rss"
+      />
+    </Helmet>
   )
 }
 
