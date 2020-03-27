@@ -1,5 +1,4 @@
-import React, { createRef, useState, useEffect } from "react"
-import { createPortal } from "react-dom"
+import React, { createRef, useState } from "react"
 import styled from "styled-components"
 import formatTime from "../lib/formatTime"
 import { FaPlay, FaPause } from "react-icons/fa"
@@ -12,7 +11,6 @@ const Player = ({ src }) => {
   const [progress, setProgress] = useState(0)
   const audioPlayer = createRef()
   const progressBar = createRef()
-  const [playerWrapper, setPlayerWrapper] = useState(null)
 
   const timeUpdate = () => {
     setCurrentTime(audioPlayer.current.currentTime)
@@ -34,13 +32,7 @@ const Player = ({ src }) => {
     setCurrentTime(newTime)
   }
 
-  useEffect(() => {
-    setPlayerWrapper(document.getElementById("playerWrapper"))
-  }, [])
-
-  console.log(playerWrapper)
-
-  return createPortal(
+  return (
     <>
       <HiddenAudioElement
         src={src}
@@ -67,8 +59,7 @@ const Player = ({ src }) => {
           <Time>{formatTime(duration)}</Time>
         </ProgressWrapper>
       </Wrapper>
-    </>,
-    playerWrapper || (typeof window !== 'undefined' && document.body)
+    </>
   )
 }
 
