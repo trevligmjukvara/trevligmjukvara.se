@@ -1,12 +1,25 @@
 import React from "react"
 import SEO from "../components/seo"
-import LatestEpisode from "../episodes/s02e12.mdx"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 
-const IndexPage = () => {
+// Select latest episode
+export const pageQuery = graphql`
+  query MDXQuery {
+    allMdx(limit: 1, sort: { fields: frontmatter___slug, order: DESC }) {
+      edges {
+        node {
+          body
+        }
+      }
+    }
+  }
+`
+
+const IndexPage = ({ data }) => {
   return (
     <>
       <SEO title="Trevlig Mjukvara" />
-      <LatestEpisode />
+      <MDXRenderer>{data.allMdx.edges[0].node.body}</MDXRenderer>
     </>
   )
 }

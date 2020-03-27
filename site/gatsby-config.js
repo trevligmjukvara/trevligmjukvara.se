@@ -35,6 +35,13 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "episodes",
+        path: `${__dirname}/src/episodes/`,
+      },
+    },
+    {
       resolve: "gatsby-plugin-page-creator",
       options: {
         path: `${__dirname}/src/episodes`,
