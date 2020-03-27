@@ -3,6 +3,8 @@ import styled from "styled-components"
 import formatTime from "../lib/formatTime"
 import { FaPlay, FaPause } from "react-icons/fa"
 import { MdForward30 } from "react-icons/md"
+import Tippy from "@tippyjs/react"
+import "tippy.js/dist/tippy.css"
 
 const Player = ({ src }) => {
   const [currentTime, setCurrentTime] = useState(0)
@@ -42,14 +44,18 @@ const Player = ({ src }) => {
       />
       <Wrapper>
         <ControlsWrapper>
-          <PlayPauseButton onClick={togglePlay}>
-            {playing ? <FaPause /> : <FaPlay />}
-          </PlayPauseButton>
-          <ForwardButton
-            onClick={() => (audioPlayer.current.currentTime += 30)}
-          >
-            <MdForward30 />
-          </ForwardButton>
+          <Tippy placement="bottom" content={playing ? "Pausa" : "Spela"}>
+            <PlayPauseButton onClick={togglePlay}>
+              {playing ? <FaPause /> : <FaPlay />}
+            </PlayPauseButton>
+          </Tippy>
+          <Tippy placement="bottom" content="Spola fram">
+            <ForwardButton
+              onClick={() => (audioPlayer.current.currentTime += 30)}
+            >
+              <MdForward30 />
+            </ForwardButton>
+          </Tippy>
         </ControlsWrapper>
         <ProgressWrapper>
           <Time>{formatTime(currentTime)}</Time>
@@ -72,10 +78,11 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   padding: 15px 10px;
-  background-color: #fff;
+  background-color: #f9f9f9;
   position: relative;
   top: 0;
-  border-radius: 3px 3px 0 0;
+  border-radius: 3px;
+  border: 1px solid var(--border-color);
 `
 
 const ControlsWrapper = styled.div`
@@ -97,11 +104,15 @@ const PlayPauseButton = styled.button`
   font-size: 26px;
   line-height: 48px;
   vertical-align: middle;
+  cursor: pointer;
 
   &:focus,
   &:active {
     outline: none;
-    /* border: 1px dotted #000; */
+  }
+
+  &::-moz-focus-inner {
+    border: 0;
   }
 `
 const ForwardButton = styled.button`
@@ -114,11 +125,15 @@ const ForwardButton = styled.button`
   font-size: 36px;
   line-height: 50px;
   vertical-align: middle;
+  cursor: pointer;
 
   &:focus,
   &:active {
     outline: none;
-    /* border: 1px dotted #000; */
+  }
+
+  &::-moz-focus-inner {
+    border: 0;
   }
 `
 
@@ -127,18 +142,10 @@ const Time = styled.span`
   text-align: center;
   flex: 0 0 80px;
   font-size: 16px;
-  font-weight: bold;
 `
 
 const ProgressBar = styled.div`
-  background: linear-gradient(
-    to right,
-    #028bc2,
-    #85b638,
-    #fde602,
-    #f5731b,
-    #f23e88
-  );
+  background: linear-gradient(to right, #ff67a9, #7af5ee, #c8ca2f);
 
   /* background: linear-gradient(
     to right,
@@ -154,11 +161,11 @@ const ProgressBar = styled.div`
   ); */
 
   width: 100%;
-  height: 18px;
+  height: 10px;
 `
 
 const Progress = styled.div`
-  background: #f1f3f4;
+  background: #eaeaea;
   width: calc(100% - ${props => props.progress}%);
   height: 100%;
   float: right;

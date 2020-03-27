@@ -30,11 +30,27 @@ const GlobalStyle = createGlobalStyle`
         a {
             color: black;
             text-decoration: none;
-            border-bottom: 2px solid #ff67a9;
+            background-color: #e2e2e2;
+            padding: 3px 7px;
+            font-size: 0.8em;
+            border-radius: 3px;
             word-break: break-word;
+            display: block;
+            width: fit-content;
 
             &:hover {
-                background-color: #ff67a9;
+                background-color: #fff;
+            }
+
+            &:before {
+                content: '';
+                width: 10px;
+                height: 10px;
+                padding-right: 5px;
+                display: inline-flex;
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-image: url("data:image/svg+xml,%3Csvg stroke='currentColor' fill='none' stroke-width='2' viewBox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' height='1em' width='1em' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71'%3E%3C/path%3E%3Cpath d='M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71'%3E%3C/path%3E%3C/svg%3E");
             }
         }
 
@@ -42,7 +58,6 @@ const GlobalStyle = createGlobalStyle`
             padding: 3px 0;
         }
     }
-
 `
 
 function Grid() {
@@ -103,7 +118,6 @@ const Layout = ({ children }) => {
       <Wrapper>
         <GlobalStyle />
         <Header siteTitle="Trevlig mjukvara" />
-        {/* <div id="playerWrapper" style={{ minHeight: "70px" }}></div> */}
         <MainWrapper>
           <Navigation>
             {episodes.map(
@@ -171,7 +185,6 @@ const MainWrapper = styled.div`
   display: flex;
   flex-direction: row;
   border: 1px solid var(--border-color);
-  /* border-radius: 0 0 3px 3px; */
   border-radius: 3px;
   background-color: #fff;
   margin-bottom: 100px;
@@ -213,6 +226,16 @@ const Main = styled.main`
   @media only screen and (max-width: 600px) {
     flex: 1;
     padding: 15px;
+  }
+
+  ul {
+    margin-top: 5px;
+    margin-bottom: 30px;
+  }
+
+  h2,
+  h3 {
+    margin-bottom: 5px;
   }
 `
 
