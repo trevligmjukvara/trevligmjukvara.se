@@ -205,6 +205,7 @@ const Main = styled.main`
   padding: 20px 30px;
   border-left: 1px solid var(--border-color);
   flex: 1 1 auto;
+  font-size: 14px;
 
   @media only screen and (max-width: 600px) {
     flex: 1;
@@ -214,11 +215,25 @@ const Main = styled.main`
   ul {
     margin-top: 5px;
     margin-bottom: 30px;
+    padding-left: 15px;
   }
 
-  h2,
+  h2 {
+    margin: 0 0 5px 0;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+
   h3 {
     margin-bottom: 5px;
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+
+  h4 {
+    margin-bottom: 5px;
+    font-size: 14px;
+    text-transform: uppercase;
   }
 `
 
