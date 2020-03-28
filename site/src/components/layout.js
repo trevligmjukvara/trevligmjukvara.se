@@ -4,8 +4,9 @@ import styled, { createGlobalStyle } from "styled-components"
 import { Link } from "gatsby"
 import { Canvas, useFrame } from "react-three-fiber"
 import * as THREE from "three"
-
+import Player from "./player"
 import Header from "./header"
+import { useGlobalState } from "../globalState"
 
 const GlobalStyle = createGlobalStyle`
     :root {
@@ -22,7 +23,6 @@ const GlobalStyle = createGlobalStyle`
     body {
         font-family: 'Roboto', Helvetica, Arial, sans-serif;
         overflow-y: scroll;
-        /* background-color: #fff6eb; */
         background-color: #101010;
     }
 
@@ -106,11 +106,12 @@ const Layout = ({ children }) => {
   `)
   const { edges: episodes } = data.allSitePage
 
+  const [activeEpisode] = useGlobalState("activeEpisode")
+
   return (
     <>
       <CanvasBackground>
         <Canvas camera={{ position: [0, 0, 15] }}>
-          {/* <fog attach="fog" args={[COLORS.pink, 1, 60]} /> */}
           <fog attach="fog" args={[COLORS.codGray, 5, 30]} />
           <Grid />
         </Canvas>
@@ -118,6 +119,7 @@ const Layout = ({ children }) => {
       <Wrapper>
         <GlobalStyle />
         <Header siteTitle="Trevlig mjukvara" />
+        <Player src={activeEpisode.src} title={activeEpisode.title} />
         <MainWrapper>
           <Navigation>
             {episodes.map(
@@ -125,7 +127,7 @@ const Layout = ({ children }) => {
                 episode.node.context &&
                 episode.node.context.frontmatter && (
                   <Episode
-                    to={episode.node.context.frontmatter.slug}
+                    to={`/${episode.node.context.frontmatter.slug}`}
                     key={i}
                     activeClassName="active"
                   >
@@ -135,30 +137,12 @@ const Layout = ({ children }) => {
                     <EpisodeTitle>
                       {episode.node.context.frontmatter.title}
                     </EpisodeTitle>
-                    {/* <p>{episode.node.context.frontmatter.excerpt}</p> */}
                   </Episode>
                 )
             )}
           </Navigation>
           <Main>{children}</Main>
         </MainWrapper>
-        <Footer>
-          {/* <FaInstagram /> */}
-          {/* <FooterLink
-          target="_blank"
-          href="https://twitter.com/trevligmjukvara"
-          title="Säg hej till oss på twitter"
-        >
-          <FaTwitter />
-        </FooterLink>
-        <FooterLink
-          target="_blank"
-          href="mailto:kontakt@trevligmjukvara.se"
-          title="Maila oss"
-        >
-          <FaEnvelope />
-        </FooterLink> */}
-        </Footer>
       </Wrapper>
     </>
   )
@@ -178,14 +162,13 @@ const Wrapper = styled.div`
   max-width: 1000px;
   padding: 0 15px;
   margin: 0 auto;
-  height: 100%;
 `
 
 const MainWrapper = styled.div`
   display: flex;
   flex-direction: row;
   border: 1px solid var(--border-color);
-  border-radius: 3px;
+  border-radius: 0 0 3px 3px;
   background-color: #fff;
   margin-bottom: 100px;
   flex: 1 0 auto;
@@ -264,19 +247,5 @@ const EpisodeNumber = styled.h3`
   color: #777;
   margin: 12px 0 5px 0;
 `
-
-const Footer = styled.footer`
-  margin: auto;
-  padding: 20px 0;
-  font-size: 30px;
-
-  > * {
-    padding-right: 20px;
-  }
-`
-
-// const FooterLink = styled.a`
-//   color: #000;
-// `
 
 export default Layout

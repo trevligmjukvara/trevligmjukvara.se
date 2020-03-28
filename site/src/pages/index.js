@@ -1,6 +1,7 @@
-import React from "react"
+import React, { useEffect } from "react"
 import SEO from "../components/seo"
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import { useGlobalState } from "../globalState"
 
 // Select latest episode
 export const pageQuery = graphql`
@@ -9,6 +10,10 @@ export const pageQuery = graphql`
       edges {
         node {
           body
+          frontmatter {
+            audioSourcePath
+            title
+          }
         }
       }
     }
@@ -16,6 +21,15 @@ export const pageQuery = graphql`
 `
 
 const IndexPage = ({ data }) => {
+  const [, setActiveEpisode] = useGlobalState("activeEpisode")
+
+  useEffect(() => {
+    setActiveEpisode({
+      src: data.allMdx.edges[0].node.frontmatter.audioSourcePath,
+      title: data.allMdx.edges[0].node.frontmatter.title,
+    })
+  })
+
   return (
     <>
       <SEO title="Trevlig Mjukvara" />
