@@ -4,5 +4,6 @@ export const { useGlobalState } = createGlobalState({
   activeEpisode: {
     src: "",
     title: "",
+    slug: "",
   },
 })

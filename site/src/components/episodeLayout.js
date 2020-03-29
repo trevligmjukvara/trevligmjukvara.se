@@ -4,11 +4,11 @@ import SEO from "./seo"
 
 const EpisodeLayout = ({ children, pageContext }) => {
   const [, setActiveEpisode] = useGlobalState("activeEpisode")
-  const { audioSourcePath, title, episode } = pageContext.frontmatter
+  const { audioSourcePath, title, episode, slug } = pageContext.frontmatter
 
   useEffect(() => {
-    setActiveEpisode({ src: audioSourcePath, title: title })
-  }, [audioSourcePath, title, episode, setActiveEpisode])
+    setActiveEpisode({ src: audioSourcePath, title: title, slug: slug })
+  }, [audioSourcePath, title, episode, setActiveEpisode, slug])
   return (
     <>
       <SEO title={`${episode} - ${title}`} />
