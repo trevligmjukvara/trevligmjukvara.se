@@ -88,7 +88,7 @@ const Wrapper = styled.nav`
   background-color: var(--nav-background-color);
   flex: 0 0 250px;
   overflow: scroll;
-  height: calc(100vh - 37px); /* full height minus player minus button*/
+  height: calc(100vh - 48px); /* full height minus button*/
 
   @media only screen and (max-width: 600px) {
     flex: 1;

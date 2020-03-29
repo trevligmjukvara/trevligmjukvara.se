@@ -5,6 +5,7 @@ import Tippy from "@tippyjs/react"
 import "tippy.js/dist/tippy.css"
 import { FiVolume2 } from "react-icons/fi"
 import { useGlobalState } from "../globalState"
+import logo from "../images/logo_rect.png"
 
 const Player = ({ src, title }) => {
   const [currentTime, setCurrentTime] = useState(0)
@@ -156,6 +157,9 @@ const Player = ({ src, title }) => {
             <Time>{formatTime(currentTime)}</Time>/
             <Time>{formatTime(duration)}</Time>
           </TimeWrapper>
+          <LogoWrapper>
+            <Logo src={logo} />
+          </LogoWrapper>
           <FastnessWrapper>
             <Tippy placement="bottom" content="Hastighet">
               <FastnessButton onClick={speedUp} onContextMenu={speedDown}>
@@ -175,6 +179,29 @@ const Player = ({ src, title }) => {
 }
 
 export default Player
+
+const LogoWrapper = styled.div`
+  display: none;
+  height: 70px;
+  width: 70px;
+  grid-column: 1/1;
+  grid-row: 1/1;
+  border-radius: 3px 0 0 0;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  @media only screen and (max-width: 450px) {
+    display: block;
+  }
+`
+
+const Logo = styled.img`
+  height: 260px;
+`
 
 const HiddenAudioElement = styled.audio``
 
@@ -200,10 +227,6 @@ const ControlsWrapper = styled.div`
 
   @media only screen and (max-width: 800px) {
     grid-template-columns: 1fr auto auto auto 1fr;
-  }
-
-  @media only screen and (max-width: 450px) {
-    grid-template-columns: auto auto auto 1fr;
   }
 `
 
@@ -236,8 +259,17 @@ const Title = styled.span`
   @media only screen and (max-width: 800px) {
     grid-row: 2/2;
     grid-column: span 5;
-    margin: 0 10px 10px 10px;
     font-size: 16px;
+    border-radius: 0;
+
+    svg {
+      position: absolute;
+    }
+
+    span {
+      text-align: center;
+      width: 100%;
+    }
   }
 `
 
