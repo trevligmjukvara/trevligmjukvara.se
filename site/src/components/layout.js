@@ -7,6 +7,8 @@ import Player from "./player"
 import Header from "./header"
 import { useGlobalState } from "../globalState"
 import Navigation from "./navigation"
+import MobileNavigation from "./mobileNavigation"
+import Footer from "./footer"
 
 const GlobalStyle = createGlobalStyle`
     :root {
@@ -121,13 +123,37 @@ const Layout = ({ children }) => {
         <Header siteTitle="Trevlig mjukvara" />
         <Player src={activeEpisode.src} title={activeEpisode.title} />
         <MainWrapper>
-          <Navigation episodes={episodes} />
+          <HideOnMobile>
+            <Navigation episodes={episodes} />
+          </HideOnMobile>
           <Main>{children}</Main>
         </MainWrapper>
+        <Footer />
       </Wrapper>
+      <HideOnDesktop>
+        <MobileNavigation episodes={episodes} />
+      </HideOnDesktop>
     </>
   )
 }
+
+const HideOnDesktop = styled.div`
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 2;
+
+  @media only screen and (min-width: 601px) {
+    display: none;
+  }
+`
+
+const HideOnMobile = styled.div`
+  flex: 0 0 250px;
+  @media only screen and (max-width: 600px) {
+    display: none;
+  }
+`
 
 const CanvasBackground = styled.div`
   position: fixed;
@@ -143,6 +169,10 @@ const Wrapper = styled.div`
   max-width: 1000px;
   padding: 0 15px;
   margin: 0 auto;
+
+  @media only screen and (max-width: 600px) {
+    padding: 0;
+  }
 `
 
 const MainWrapper = styled.div`
@@ -151,7 +181,7 @@ const MainWrapper = styled.div`
   border: 1px solid var(--border-color);
   border-radius: 0 0 3px 3px;
   background-color: #fff;
-  margin-bottom: 100px;
+  margin-bottom: 10px;
   flex: 1 0 auto;
 
   @media only screen and (max-width: 600px) {

@@ -63,7 +63,6 @@ const Episode = styled(Link)`
 const Wrapper = styled.nav`
   background-color: var(--nav-background-color);
   border-left: 8px solid var(--border-color);
-  flex: 0 0 250px;
 
   @media only screen and (max-width: 600px) {
     flex: 1;
