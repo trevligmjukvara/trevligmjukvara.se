@@ -13,6 +13,7 @@ export const pageQuery = graphql`
           frontmatter {
             audioSourcePath
             title
+            slug
           }
         }
       }
@@ -27,6 +28,7 @@ const IndexPage = ({ data }) => {
     setActiveEpisode({
       src: data.allMdx.edges[0].node.frontmatter.audioSourcePath,
       title: data.allMdx.edges[0].node.frontmatter.title,
+      slug: data.allMdx.edges[0].node.frontmatter.slug,
     })
   }, [data.allMdx.edges, setActiveEpisode])
 

@@ -1,12 +1,12 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled, { createGlobalStyle } from "styled-components"
-import { Link } from "gatsby"
 import { Canvas, useFrame } from "react-three-fiber"
 import * as THREE from "three"
 import Player from "./player"
 import Header from "./header"
 import { useGlobalState } from "../globalState"
+import Navigation from "./navigation"
 
 const GlobalStyle = createGlobalStyle`
     :root {
@@ -121,26 +121,7 @@ const Layout = ({ children }) => {
         <Header siteTitle="Trevlig mjukvara" />
         <Player src={activeEpisode.src} title={activeEpisode.title} />
         <MainWrapper>
-          <Navigation>
-            {episodes.map(
-              (episode, i) =>
-                episode.node.context &&
-                episode.node.context.frontmatter && (
-                  <Episode
-                    to={`/${episode.node.context.frontmatter.slug}/`}
-                    key={i}
-                    activeClassName="active"
-                  >
-                    <EpisodeNumber>
-                      {episode.node.context.frontmatter.episode}
-                    </EpisodeNumber>
-                    <EpisodeTitle>
-                      {episode.node.context.frontmatter.title}
-                    </EpisodeTitle>
-                  </Episode>
-                )
-            )}
-          </Navigation>
+          <Navigation episodes={episodes} />
           <Main>{children}</Main>
         </MainWrapper>
       </Wrapper>
@@ -178,29 +159,6 @@ const MainWrapper = styled.div`
   }
 `
 
-const Episode = styled(Link)`
-  display: flex;
-  flex-direction: column;
-  padding-left: 10px;
-  margin-left: -9px;
-  position: relative;
-  right: -1px;
-  border-left: 8px solid var(--border-color);
-  border-right: 1px solid var(--border-color);
-  text-decoration: none;
-  color: #000;
-
-  &.active {
-    background-color: #fff;
-    border-left: 8px solid #7bf5ee;
-    border-right: none;
-  }
-
-  &:hover {
-    background-color: #fff;
-  }
-`
-
 const Main = styled.main`
   padding: 20px 30px;
   border-left: 1px solid var(--border-color);
@@ -235,32 +193,6 @@ const Main = styled.main`
     font-size: 14px;
     text-transform: uppercase;
   }
-`
-
-const Navigation = styled.nav`
-  background-color: var(--nav-background-color);
-  border-left: 8px solid var(--border-color);
-  flex: 0 0 250px;
-
-  @media only screen and (max-width: 600px) {
-    flex: 1;
-  }
-
-  ${Episode} {
-    border-bottom: 1px solid var(--border-color);
-  }
-`
-
-const EpisodeTitle = styled.h2`
-  font-size: 16px;
-  margin: 5px 0 12px 0;
-`
-
-const EpisodeNumber = styled.h3`
-  font-size: 13px;
-  font-weight: normal;
-  color: #777;
-  margin: 12px 0 5px 0;
 `
 
 export default Layout
