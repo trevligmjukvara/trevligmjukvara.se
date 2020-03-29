@@ -28,7 +28,7 @@ const IndexPage = ({ data }) => {
       src: data.allMdx.edges[0].node.frontmatter.audioSourcePath,
       title: data.allMdx.edges[0].node.frontmatter.title,
     })
-  })
+  }, [data.allMdx.edges, setActiveEpisode])
 
   return (
     <>
