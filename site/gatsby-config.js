@@ -35,6 +35,13 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "episodes",
+        path: `${__dirname}/src/episodes/`,
+      },
+    },
+    {
       resolve: "gatsby-plugin-page-creator",
       options: {
         path: `${__dirname}/src/episodes`,
@@ -43,9 +50,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        // defaultLayouts: {
-        //   default: require.resolve(`./src/components/layout.js`),
-        // },
+        defaultLayouts: {
+          default: require.resolve(`./src/components/episodeLayout.js`),
+        },
       },
     },
     {
