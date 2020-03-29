@@ -127,7 +127,7 @@ const Layout = ({ children }) => {
                 episode.node.context &&
                 episode.node.context.frontmatter && (
                   <Episode
-                    to={`/${episode.node.context.frontmatter.slug}`}
+                    to={`/${episode.node.context.frontmatter.slug}/`}
                     key={i}
                     activeClassName="active"
                   >
