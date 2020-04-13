@@ -1,5 +1,5 @@
 # Redirects from what the browser requests to what we serve
-/s01e01         /              301!
-/s01e02         /              301!
-/s01e03         /              301!
-/s02e01         /              301!
+/s01e01         /         301!
+/s01e02         /         301!
+/s01e03         /         301!
+/s02e01         /         301!
