@@ -64,4 +64,14 @@
   - graferna uppdaterade
   - Regex/wildcard support for the whitelist
 - bättre minnesanvändning
+  
+
+## Firefox Pocket
+
+- default i Firefox
+  - varför?
+- spara websidor
+  - offline förutom video
+- förvirrande. en del av FF men ändå inte?
+  - separat konto
 - 
