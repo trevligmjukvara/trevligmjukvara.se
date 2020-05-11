@@ -49,3 +49,19 @@
 - användares säkerhet/privacy lika viktig här som överallt.
   - mer viktig?
 - ett sån här hårdvarukontrollsbibliotek gör det möjligt för generella och öppna appar/lösningar att existera
+
+
+## Pi-hole v5.0
+
+- Per-client blocking
+  - group management UI
+  - 
+- block-listorna tidigare i lösa filer
+  - nu i gravity-databas. timestamp, kommentarer osv.
+  - 
+- bättre "deep CNAME" blockering
+- förbättrat UI i dashboarden
+  - graferna uppdaterade
+  - Regex/wildcard support for the whitelist
+- bättre minnesanvändning
+- 
