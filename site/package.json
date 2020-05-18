@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "trevlig-mjukvara-homepage",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "The homepage for the podcast Trevlig Mjukvara",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Trevlig Mjukvara <kontakt@trevligmjukvara.se>",
   "dependencies": {
     "@mdx-js/mdx": "^1.5.1",
     "@mdx-js/react": "^1.5.1",
@@ -36,7 +36,8 @@
     "prettier": "^1.19.1"
   },
   "keywords": [
-    "gatsby"
+    "podcast",
+    "trevligmjukvara"
   ],
   "license": "MIT",
   "scripts": {
@@ -50,9 +51,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/trevligmjukvara/trevligmjukvara.se"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/trevligmjukvara/trevligmjukvara.se/issues"
   }
 }

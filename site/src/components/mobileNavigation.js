@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import { useGlobalState } from "../globalState"
-import { FaWindowClose } from "react-icons/fa"
 
 const MobileNavigation = ({ episodes }) => {
   const [activeEpisode] = useGlobalState("activeEpisode")
