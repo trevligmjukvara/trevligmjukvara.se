@@ -30,7 +30,6 @@ const EpisodeLayout = ({ children, pageContext }) => {
   return (
     <>
       <SEO title={`${episode} - ${title}`} shareImage={shareImage} />
-      <img src={shareImage} />
       {children}
     </>
   )
