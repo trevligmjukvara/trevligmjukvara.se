@@ -53,6 +53,7 @@ module.exports = {
         defaultLayouts: {
           default: require.resolve(`./src/components/episodeLayout.js`),
         },
+        extensions: [".mdx", ".md"],
       },
     },
     {
