@@ -10,11 +10,12 @@ collections:
     folder: "episodes" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    identifier_field: slug
     fields: # The fields for each document, usually in front matter
-      - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Slug", name: "slug", widget: "string"}
       - {label: "Date", name: "date", widget: "datetime"}
-      - {label: "Title", name: "Title", widget: "string"}
+      - {label: "Title", name: "title", widget: "string"}
       - {label: "Excerpt", name: "excerpt", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "string"}
       - {label: "Audio source path", name: "audioSourcePath", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
