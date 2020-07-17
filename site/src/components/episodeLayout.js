@@ -12,27 +12,30 @@ const EpisodeLayout = ({ children, pageContext }) => {
   }, [audioSourcePath, title, episode, setActiveEpisode, slug])
 
   const shareImage = getShareImage({
-    title: `${title}`,
-    tagline: `${episode} ‣`,
+    title: `${episode} ‣`,
+    tagline: `${title}`,
     cloudName: "dcuupgh1z",
     imagePublicID: "/v1590780997/share-template.png",
-    titleFont: "Chau Philomene One",
-    taglineFont: "Chau Philomene One",
+    titleFont: "Roboto",
+    taglineFont: "Roboto",
     textColor: "ffffff",
     textAreaWidth: 631,
     textLeftOffset: 587,
-    titleFontSize: 100,
-    taglineFontSize: 65,
-    titleBottomOffset: 250,
-    taglineTopOffset: 245,
+    titleFontSize: 65,
+    taglineFontSize: 90,
+    titleBottomOffset: 430,
+    taglineTopOffset: 290,
   })
+  console.log(shareImage)
 
   return (
     <>
       <SEO title={`${episode} - ${title}`} shareImage={shareImage} />
+      <img src={shareImage} width="400px" />
       {children}
     </>
   )
 }
 
 export default EpisodeLayout
+
