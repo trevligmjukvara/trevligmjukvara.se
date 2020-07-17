@@ -5,7 +5,6 @@ import { useGlobalState } from "../globalState"
 
 const Navigation = ({ episodes }) => {
   const [activeEpisode] = useGlobalState("activeEpisode")
-  console.log(activeEpisode)
 
   return (
     <Wrapper>
