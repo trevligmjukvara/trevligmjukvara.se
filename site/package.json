@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Trevlig Mjukvara <kontakt@trevligmjukvara.se>",
   "dependencies": {
+    "@jlengstorf/get-share-image": "^0.7.1",
     "@mdx-js/mdx": "^1.5.1",
     "@mdx-js/react": "^1.5.1",
     "@tippyjs/react": "^4.0.0-alpha.4",
