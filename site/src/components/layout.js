@@ -106,7 +106,7 @@ const Layout = ({ children }) => {
       }
     }
   `)
- const { edges: episodes } = data.allSitePage
+  const { edges: episodes } = data.allSitePage
 
   const [activeEpisode] = useGlobalState("activeEpisode")
 
