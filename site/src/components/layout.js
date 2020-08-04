@@ -89,15 +89,15 @@ const COLORS = {
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query blogIndex {
-      allSitePage(sort: { fields: id, order: DESC }) {
+      allSitePage(sort: { fields: context___frontmatter___date, order: DESC }) {
         edges {
           node {
             context {
               frontmatter {
+                date
                 slug
                 title
                 episode
-                date
                 excerpt
               }
             }
@@ -106,7 +106,7 @@ const Layout = ({ children }) => {
       }
     }
   `)
-  const { edges: episodes } = data.allSitePage
+ const { edges: episodes } = data.allSitePage
 
   const [activeEpisode] = useGlobalState("activeEpisode")
 

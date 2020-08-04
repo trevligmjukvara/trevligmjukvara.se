@@ -6,7 +6,7 @@ import { useGlobalState } from "../globalState"
 // Select latest episode
 export const pageQuery = graphql`
   query MDXQuery {
-    allMdx(limit: 1, sort: { fields: frontmatter___slug, order: DESC }) {
+    allMdx(limit: 1, sort: { fields: frontmatter___date, order: DESC }) {
       edges {
         node {
           body
@@ -14,6 +14,7 @@ export const pageQuery = graphql`
             audioSourcePath
             title
             slug
+            date
           }
         }
       }
