@@ -14,7 +14,6 @@ export const pageQuery = graphql`
             audioSourcePath
             title
             slug
-            date
           }
         }
       }

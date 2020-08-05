@@ -94,7 +94,6 @@ const Layout = ({ children }) => {
           node {
             context {
               frontmatter {
-                date
                 slug
                 title
                 episode
