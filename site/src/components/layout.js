@@ -89,7 +89,7 @@ const COLORS = {
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query blogIndex {
-      allSitePage(sort: { fields: id, order: DESC }) {
+      allSitePage(sort: { fields: context___frontmatter___date, order: DESC }) {
         edges {
           node {
             context {
@@ -97,7 +97,6 @@ const Layout = ({ children }) => {
                 slug
                 title
                 episode
-                date
                 excerpt
               }
             }
