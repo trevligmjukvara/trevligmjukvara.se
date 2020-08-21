@@ -20,9 +20,9 @@ const Social = () => {
         <h4 style={{ margin: "10px 0" }}>Mail</h4>
         <span>kontakt@trevligmjukvara.se</span>
       </Email>
-    </SocialWrapper>
       <a rel="me" style="display: none;" href="https://mastodon.linuxkompis.se/@trevligmjukvara">TM på Mastodon</a>
       <a rel="me" style="display: none;" href="https://mastodon.online/@_alexander_">Alex på Mastodon</a>
+    </SocialWrapper>
   )
 }
 
