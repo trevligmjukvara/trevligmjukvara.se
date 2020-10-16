@@ -3,6 +3,7 @@ import React from "react"
 import styled from "styled-components"
 import logo from "../images/logo.png"
 import Social from "./social"
+import Tippy from "@tippyjs/react"
 
 const Header = () => (
   <>
@@ -14,6 +15,20 @@ const Header = () => (
       </LogoWrapper>
       <BoxWrapper>
         <Tagline>- veckopodden om trevlig och otrevlig mjukvara</Tagline>
+        <Tagline as="h3">
+          <Tippy placement="bottom" content="Stöd Trevlig Mjukvara ❤️">
+            <a
+              rel="noreferrer"
+              target="_blank"
+              href="https://liberapay.com/TrevligMjukvara/donate"
+            >
+              <img
+                alt="Donate using Liberapay"
+                src="https://liberapay.com/assets/widgets/donate.svg"
+              />
+            </a>
+          </Tippy>
+        </Tagline>
         <HideOnMobile>
           <Social />
         </HideOnMobile>
