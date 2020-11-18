@@ -96,6 +96,14 @@ const Wrapper = styled.nav`
   ${Episode} {
     border-bottom: 1px solid var(--border-color);
   }
+
+  // allow some overscroll for weird mobile browsers
+  &::before {
+    content: "";
+    display: block;
+    height: 80px;
+    background-color: #f9f9f9;
+  }
 `
 
 const EpisodeTitle = styled.h2`
