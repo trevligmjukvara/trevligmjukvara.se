@@ -18,29 +18,31 @@ const Player = ({ src, title }) => {
   const [activeEpisode] = useGlobalState("activeEpisode")
 
 
-  if ('mediaSession' in navigator) {
-    navigator.mediaSession.metadata = new window.MediaMetadata({
-      title: title,
-      artist: 'Trevlig Mjukvara',
-      album: 'Veckopodden om trevlig och otrevlig mjukvara',
-      artwork: [
-        {
-          src: logo,
-          sizes: '100x100', // HeightxWidth
-          type: 'image/png'
-        }
-      ]
+  if(typeof window !== 'undefined') {
+    if ('mediaSession' in window.navigator) {
+      window.navigator.mediaSession.metadata = new window.MediaMetadata({
+        title: title,
+        artist: 'Trevlig Mjukvara',
+        album: 'Veckopodden om trevlig och otrevlig mjukvara',
+        artwork: [
+          {
+            src: logo,
+            sizes: '100x100', // HeightxWidth
+            type: 'image/png'
+          }
+        ]
+      });
+    }
+
+
+    window.navigator.mediaSession.setActionHandler("play", () => {
+      audioPlayer.play();
+    });
+
+    window.navigator.mediaSession.setActionHandler("seekto", details => {
+      audioPlayer.currentTime = details.seekTime;
     });
   }
-
-
-  navigator.mediaSession.setActionHandler("play", () => {
-    audioPlayer.play();
-  });
-
-  navigator.mediaSession.setActionHandler("seekto", details => {
-    audioPlayer.currentTime = details.seekTime;
-  });
 
 
   const timeUpdate = () => {
