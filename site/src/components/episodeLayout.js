@@ -2,10 +2,17 @@ import React, { useEffect } from "react"
 import { useGlobalState } from "../globalState"
 import SEO from "./seo"
 import getShareImage from "@jlengstorf/get-share-image"
+import Date from "./date"
 
 const EpisodeLayout = ({ children, pageContext }) => {
   const [, setActiveEpisode] = useGlobalState("activeEpisode")
-  const { audioSourcePath, title, episode, slug } = pageContext.frontmatter
+  const {
+    audioSourcePath,
+    title,
+    episode,
+    slug,
+    date,
+  } = pageContext.frontmatter
 
   useEffect(() => {
     setActiveEpisode({ src: audioSourcePath, title: title, slug: slug })
@@ -30,6 +37,7 @@ const EpisodeLayout = ({ children, pageContext }) => {
 
   return (
     <>
+      <Date date={date} />
       <SEO title={`${episode} - ${title}`} shareImage={shareImage} />
       {children}
     </>
@@ -37,4 +45,3 @@ const EpisodeLayout = ({ children, pageContext }) => {
 }
 
 export default EpisodeLayout
-

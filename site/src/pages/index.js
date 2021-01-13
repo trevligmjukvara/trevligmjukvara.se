@@ -2,6 +2,7 @@ import React, { useEffect } from "react"
 import SEO from "../components/seo"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { useGlobalState } from "../globalState"
+import Date from "../components/date"
 
 // Select latest episode
 export const pageQuery = graphql`
@@ -14,6 +15,7 @@ export const pageQuery = graphql`
             audioSourcePath
             title
             slug
+            date
           }
         }
       }
@@ -35,6 +37,7 @@ const IndexPage = ({ data }) => {
   return (
     <>
       <SEO title="Trevlig Mjukvara" />
+      <Date date={data.allMdx.edges[0].node.frontmatter.date} />
       <MDXRenderer>{data.allMdx.edges[0].node.body}</MDXRenderer>
     </>
   )
