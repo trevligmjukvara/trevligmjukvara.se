@@ -36,12 +36,16 @@ const Player = ({ src, title }) => {
 
 
     window.navigator.mediaSession.setActionHandler("play", () => {
-      audioPlayer.play();
-    });
+      audioPlayer.current.play() 
+    })
+
+    window.navigator.mediaSession.setActionHandler("pause", () => {
+      audioPlayer.current.pause() 
+    })
 
     window.navigator.mediaSession.setActionHandler("seekto", details => {
-      audioPlayer.currentTime = details.seekTime;
-    });
+      audioPlayer.current.currentTime = details.seekTime
+    })
   }
 
 
@@ -62,7 +66,6 @@ const Player = ({ src, title }) => {
     const newTime =
       (e.nativeEvent.offsetX / progressBar.current.offsetWidth) * duration
     audioPlayer.current.currentTime = newTime
-    console.log(audioPlayer.current)
     setCurrentTime(newTime)
   }
 
