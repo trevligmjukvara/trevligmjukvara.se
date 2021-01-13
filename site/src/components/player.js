@@ -17,6 +17,32 @@ const Player = ({ src, title }) => {
   const progressBar = createRef()
   const [activeEpisode] = useGlobalState("activeEpisode")
 
+
+  if ('mediaSession' in navigator) {
+    navigator.mediaSession.metadata = new window.MediaMetadata({
+      title: title,
+      artist: 'Trevlig Mjukvara',
+      album: 'Veckopodden om trevlig och otrevlig mjukvara',
+      artwork: [
+        {
+          src: logo,
+          sizes: '100x100', // HeightxWidth
+          type: 'image/png'
+        }
+      ]
+    });
+  }
+
+
+  navigator.mediaSession.setActionHandler("play", () => {
+    audioPlayer.play();
+  });
+
+  navigator.mediaSession.setActionHandler("seekto", details => {
+    audioPlayer.currentTime = details.seekTime;
+  });
+
+
   const timeUpdate = () => {
     setCurrentTime(audioPlayer.current.currentTime)
     setDuration(audioPlayer.current.duration)
