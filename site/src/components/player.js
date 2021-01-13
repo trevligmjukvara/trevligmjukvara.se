@@ -27,36 +27,36 @@ const Player = ({ src, title }) => {
         artwork: [
           {
             src: logo,
-            sizes: '100x100', // HeightxWidth
+            sizes: '100x100', 
             type: 'image/png'
           }
         ]
       });
+
+
+      window.navigator.mediaSession.setActionHandler("play", () => {
+        audioPlayer.current.play() 
+      })
+
+      window.navigator.mediaSession.setActionHandler("pause", () => {
+        audioPlayer.current.pause() 
+      })
+
+      window.navigator.mediaSession.setActionHandler("seekforward", () => {
+        audioPlayer.current.currentTime += 15
+      })    
+
+      window.navigator.mediaSession.setActionHandler("seekbackward", () => {
+        audioPlayer.current.currentTime -= 15
+      })    
+
+      // NOTE: seekto is buggy for some reason. possible to seek but progress bar jumps around. 
+      // Same problem on youtube for example, so chances are there's no easy fix.
+      // Maybe look at setPositionState: https://developer.mozilla.org/en-US/docs/Web/API/MediaSession/setPositionState
+      // window.navigator.mediaSession.setActionHandler("seekto", details => {
+      //   audioPlayer.current.currentTime = details.seekTime
+      // })
     }
-
-
-    window.navigator.mediaSession.setActionHandler("play", () => {
-      audioPlayer.current.play() 
-    })
-
-    window.navigator.mediaSession.setActionHandler("pause", () => {
-      audioPlayer.current.pause() 
-    })
-
-    window.navigator.mediaSession.setActionHandler("seekforward", () => {
-      audioPlayer.current.currentTime += 15
-    })    
-
-    window.navigator.mediaSession.setActionHandler("seekbackward", () => {
-      audioPlayer.current.currentTime -= 15
-    })    
-
-    // NOTE: seekto is buggy for some reason. possible to seek but progress bar jumps around. 
-    // Same problem on youtube for example, so chances are there's no easy fix.
-    // Maybe look at setPositionState: https://developer.mozilla.org/en-US/docs/Web/API/MediaSession/setPositionState
-    // window.navigator.mediaSession.setActionHandler("seekto", details => {
-    //   audioPlayer.current.currentTime = details.seekTime
-    // })
   }
 
 
