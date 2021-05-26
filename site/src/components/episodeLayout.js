@@ -29,7 +29,7 @@ const EpisodeLayout = ({ children, pageContext }) => {
     textAreaWidth: 631,
     textLeftOffset: 587,
     titleFontSize: 65,
-    taglineFontSize: 90,
+    taglineFontSize: 80,
     titleBottomOffset: 430,
     taglineTopOffset: 290,
   })
