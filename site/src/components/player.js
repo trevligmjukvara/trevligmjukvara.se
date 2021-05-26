@@ -286,6 +286,7 @@ const Title = styled.span`
   color: #fff;
   display: flex;
   align-items: center;
+  overflow: hidden;
 
   svg {
     margin-right: 15px;
@@ -303,10 +304,6 @@ const Title = styled.span`
     grid-column: span 5;
     font-size: 16px;
     border-radius: 0;
-
-    svg {
-      position: absolute;
-    }
 
     span {
       text-align: center;
